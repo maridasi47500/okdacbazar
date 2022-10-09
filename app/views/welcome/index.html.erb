@@ -1,0 +1,83 @@
+<%=content_for :script do%>
+<%end%>
+<main>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" >
+  <div class="carousel-inner">
+      <%notfirst=false%>
+      <%(1..5).to_a.map {|x|"accueil#{x}.JPG"}.each do |y|%>
+      
+    <div class="carousel-item <%=!notfirst ? "active" : ""%>">
+      <%=image_tag y, {style:"height:400px;", class: "d-block w-100"}%>
+    </div>
+      <%notfirst = true%>
+    <%end%>
+  </div>
+</div>
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Ok dac bazar</h1>
+        <p class="lead text-muted">Bricolage - électricité - jardinage - outillage - plomberie - quincaillerie</p>
+        <p>
+          <a href="#achat" class="btn btn-primary my-2">Contacter le vendeur pour un achat</a>
+          <a href="#achat" onclick="typeq.value=0;" class="btn btn-secondary my-2">Contacter le vendeur pour toute autre question</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+            <%=image_tag "accueil1.JPG",{class:"card-img-top", width: "100%", height: "225"}%>
+
+            <div class="card-body">
+              <p class="card-text">OUVERT DU LUNDI AU SAMEDI</p>
+              <p class="card-text">8h30 - 13h00</p>
+              <p class="card-text">16h00 - 19h00</p>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+              <%=image_tag "accueil3.JPG",{class:"card-img-top", width: "100%", height: "225"}%>
+            <div class="card-body">
+              <p class="card-text">Vente de Quincaillerie </p>
+              <p class="card-text">Vente de produits de décoration - électricité - jardinage - outillage - plomberie</p>
+              
+            </div>
+          </div>
+        </div>
+      </div></div></div>
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+       <form id="achat">
+  <fieldset>
+    <legend>Ok dac ! contactez moi !</legend>
+    
+    <div class="mb-3">
+      <label for="typeq" class="form-label">au sujet de </label>
+      <select id="typeq" class="form-select">
+        <option value="1">quincaillerie</option>
+        <option value="2">électricité</option>
+        <option value="3">jardinage</option>
+        <option id="question" value="0">autre question</option>
+      </select>
+    </div>
+ <div class="mb-3">
+      <label for="disabledTextInput" class="form-label">Votre message</label>
+      <textarea id="disabledTextInput" style="height: 100px;" class="form-control" placeholder=""></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </fieldset>
+</form>
+      </div>
+    </div>
+  </section>
+
+</main>
