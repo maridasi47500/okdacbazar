@@ -56,13 +56,20 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-       <form id="achat">
+       <form action="/" method="post" id="achat" onclick="$.ajax({type:'post',url: '<%=yourmsg_path%>?'+$(achat).serialize(), success: function(data){envoimsg.innerHTML='Votre message a été envoyé.';}, error: function(){envoimsg.innerHTML='Il y a eu une erreur lors de l\'envoi.';} });return false;">
   <fieldset>
     <legend>Ok dac ! contactez moi !</legend>
-    
+     <div class="mb-3">
+      <label for="nom" class="form-label">Votre nom</label>
+      <input type="text" name="nom" required id="nom" style="" class="form-control" placeholder=""/>
+    </div>
+     <div class="mb-3">
+      <label for="email" class="form-label">Votre email</label>
+      <input type="email" name="email" required id="email" style="" class="form-control" placeholder=""/>
+    </div>
     <div class="mb-3">
       <label for="typeq" class="form-label">au sujet de </label>
-      <select id="typeq" class="form-select">
+      <select name="typeq" id="typeq" class="form-select">
         <option value="1">quincaillerie</option>
         <option value="2">électricité</option>
         <option value="3">jardinage</option>
@@ -70,12 +77,13 @@
       </select>
     </div>
  <div class="mb-3">
-      <label for="disabledTextInput" class="form-label">Votre message</label>
-      <textarea id="disabledTextInput" style="height: 100px;" class="form-control" placeholder=""></textarea>
+      <label for="monmessage" class="form-label">Votre message</label>
+      <textarea name="monmessage" required id="monmessage" style="height: 100px;" class="form-control" placeholder=""></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </fieldset>
 </form>
+          <p id="envoimsg"></p>
       </div>
     </div>
   </section>
